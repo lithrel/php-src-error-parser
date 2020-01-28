@@ -1,0 +1,13 @@
+[
+  {
+    "pattern": "Call to undefined function %s()",
+    "main": "No function with the name %s could be found",
+    "expected": "",
+    "found": "",
+    "hint":  ["Maybe you were looking for one of those functions:"],
+    "src": {
+      "file": "Zend/zend_execute.c",
+      "line": 3992
+    }
+  }
+]

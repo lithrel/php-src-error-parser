@@ -1,0 +1,20 @@
+{
+    "name": "lithrel/php-src-error-parser",
+    "type": "project",
+    "authors": [
+        {
+            "name": "lithrel",
+            "email": "flo@randomdomainname.net"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpSrcErrorParser\\": "src/",
+            "Hugger\\": "../hugger/src/"
+        }
+    }
+}
