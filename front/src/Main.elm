@@ -2,7 +2,6 @@ module Main exposing (..)
 
 import Browser
 
-import Debug as Debug
 import ErrorCall exposing (ErrorCall, Occurence)
 import Search exposing (filterBy)
 import Http as Http
@@ -26,7 +25,7 @@ import Html.Parser.Util
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update message model =
-    case Debug.log "message" message of
+    case message of
         NotAsked ->
             ( {model | errors = [] }, Cmd.none )
 
@@ -224,6 +223,6 @@ init _ =
 getErrors : Cmd Msg
 getErrors =
   Http.get
-    { url = "../api/errors.json"
+    { url = "api/errors.json"
     , expect = Http.expectJson ErrorListReceived errorListDecoder
     }

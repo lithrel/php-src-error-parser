@@ -42,32 +42,6 @@ while ($regex->valid()) {
     ZEND_API zend_class_entry *zend_ce_division_by_zero_error;
     */
 
-    /** @todo
-    Static errors to add:
-    
-    main/main.c::php_error_cb has error_type_str
-        Parse error is a difficult one, maybe 
-        https://github.com/php/php-src/blob/master/Zend/zend_language_parser.y
-        https://github.com/php/php-src/blob/master/ext/opcache/jit/dynasm/minilua.c
-        can help ?
-
-    Zend/zend_execute.c::zend_wrong_string_offset
-        messages about wrong offsets
-
-    ext/opcache/jit/zend_jit_helpers.c::zend_wrong_string_offset
-
-    main/main.c::php_module_startup
-        Directive is (deprecated|no longer available)
-            allow_url_include
-            register_globals
-            etc.
-
-    Zend/zend_alloc.c::zend_mm_safe_error
-        "Allowed memory size of %zu bytes exhausted at %s:%d (tried to allocate %zu bytes)"
-    */
-
-
-
     // Zend/zend_execute_API.c
     // zend_use_undefined_constant
     $patterns = [
@@ -206,9 +180,6 @@ file_put_contents(
     json_encode(array_values($errorList), JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT)
 );
 
-// main/main.c
-// "Directive '%s' is deprecated"
-// "Directive '%s' is no longer available in PHP"
 
 /**
  * Searched message if match
@@ -219,5 +190,30 @@ file_put_contents(
  * explanation
  * fixes
  * examples on how to raise this error
- * location in code
+ * location in codet
  */
+
+
+/** @todo
+Static errors to add:
+
+main/main.c::php_error_cb has error_type_str
+    Parse error is a difficult one, maybe 
+    https://github.com/php/php-src/blob/master/Zend/zend_language_parser.y
+    https://github.com/php/php-src/blob/master/ext/opcache/jit/dynasm/minilua.c
+    can help ?
+
+Zend/zend_execute.c::zend_wrong_string_offset
+    messages about wrong offsets
+
+ext/opcache/jit/zend_jit_helpers.c::zend_wrong_string_offset
+
+main/main.c::php_module_startup
+    Directive is (deprecated|no longer available)
+        allow_url_include
+        register_globals
+        etc.
+
+Zend/zend_alloc.c::zend_mm_safe_error
+    "Allowed memory size of %zu bytes exhausted at %s:%d (tried to allocate %zu bytes)"
+*/
