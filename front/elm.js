@@ -13475,7 +13475,7 @@ var $author$project$Main$view = function (model) {
 							A3($author$project$Main$viewErrorList, model.E, model.ad, model.R))
 						])))
 			]),
-		bL: 'Title'
+		bL: 'Some PHP errors'
 	};
 };
 var $author$project$Main$main = $elm$browser$Browser$document(

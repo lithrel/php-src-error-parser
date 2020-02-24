@@ -56,7 +56,7 @@ update message model =
 
 view : Model -> Document Msg
 view model = {
-    title = "Title"
+    title = "Some PHP errors"
     , body = [
         layout []
         <| column [ centerX ]
