@@ -54,15 +54,19 @@ update message model =
 
 -- VIEW
 
-view : Model -> Html Msg
-view model =
-    layout []
+view : Model -> Document Msg
+view model = {
+    title = "Title"
+    , body = [
+        layout []
         <| column [ centerX ]
             [ row [ centerX ] [ viewHeader ]
             , row [ alignLeft ] [ viewSearch model.search ]
             , column [ width (px 800) ]
                 ( viewErrorList model.errors model.search model.selectedError )
             ]
+        ]
+    }
 
 viewHeader : Element Msg
 viewHeader =
@@ -196,6 +200,11 @@ type alias Model =
     , page : Page
     }
 
+type alias Document msg =
+    { title : String
+    , body : List (Html msg)
+    }
+
 type Page =
     Search
     | ErrorDetail
@@ -203,7 +212,7 @@ type Page =
 -- MAIN | INIT
 
 main =
-    Browser.element
+    Browser.document
         { init = init
         , update = update
         , view = view
